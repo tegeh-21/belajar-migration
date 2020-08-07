@@ -15,7 +15,14 @@ class CreateKomentarPertanyaanTable extends Migration
     {
         Schema::create('komentar_pertanyaan', function (Blueprint $table) {
             $table->id();
+            $table->string('isi', 255);
+            $table->date('tanggal_dibuat');
+            $table->integer('pertanyaan_id');
+            $table->integer('profil_id');
             $table->timestamps();
+
+            // $table->foreign('pertanyaan_id')->references('id')->on('pertanyaan');
+            // $table->foreign('profil_id')->references('id')->on('profil');
         });
     }
 

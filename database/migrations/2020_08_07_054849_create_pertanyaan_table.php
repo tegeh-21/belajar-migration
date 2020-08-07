@@ -15,7 +15,16 @@ class CreatePertanyaanTable extends Migration
     {
         Schema::create('pertanyaan', function (Blueprint $table) {
             $table->id();
+            $table->string('judul', 45);
+            $table->string('isi', 255);
+            $table->date('tanggal_dibuat');
+            $table->date('tanggal_diperbaharui');
+            $table->integer('jawaban_tepat_id');
+            $table->integer('profil_id');
             $table->timestamps();
+
+            // $table->foreign('jawaban_tepat_id')->references('id')->on('jawaban');
+            // $table->foreign('profil_id')->references('id')->on('profil');
         });
     }
 
