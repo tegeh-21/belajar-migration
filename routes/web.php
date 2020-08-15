@@ -26,16 +26,26 @@ Route::post('/postregister', 'AuthController@postregister');
 
 Route::get('/logout', 'AuthController@logout');
 
-Route::get('/pertanyaan', 'PertanyaanController@index');
-Route::get('/pertanyaan/create', 'PertanyaanController@create');
-Route::get('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@show');
-Route::get('/pertanyaan/{pertanyaan_id}/edit', 'PertanyaanController@edit');
+// Route::get('/pertanyaan', 'PertanyaanController@index');
+// Route::get('/pertanyaan/create', 'PertanyaanController@create');
+// Route::get('/jawaban/create', 'JawabanController@create');
+// Route::get('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@show');
+// Route::get('/pertanyaan/{pertanyaan_id}/edit', 'PertanyaanController@edit');
 
-Route::post('/pertanyaan', 'PertanyaanController@store');
-Route::put('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@update');
-Route::delete('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@destroy');
+// Route::post('/pertanyaan', 'PertanyaanController@store');
+// Route::put('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@update');
+// Route::delete('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@destroy');
 
 Route::resource('pertanyaan', 'PertanyaanController');
+Route::resource('jawaban', 'JawabanController');
+
+
+// Route::get('/pertanyaan/create', 'PertanyaanController@create');
+// Route::get('/jawaban', 'JawabanController@index');
+// Route::post('/jawaban', 'JawabanController@store');
+
+Route::put('up-vote/{idPertanyaan}', 'VoteController@upVote');
+Route::put('down-vote/{idPertanyaan}', 'VoteController@downVote');
 
 //Auth::routes();
 

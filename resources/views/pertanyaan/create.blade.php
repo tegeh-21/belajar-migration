@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group">
                         <label for="writer">Isi</label>
-                        <input type="text" name="isi" class="form-control" id="isi" aria-describedby="isi" placeholder="Isi">
+                        <textarea name="isi" class="form-control ckeditor" id="ckeditor" aria-describedby="isi" placeholder="Isi"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="publisher">Tanggal Dibuat</label>
