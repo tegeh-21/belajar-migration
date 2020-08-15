@@ -48,6 +48,7 @@ class PertanyaanController extends Controller
      */
     public function show(Pertanyaan $pertanyaan)
     {
+        // dd(compact('pertanyaan'));
         return view('pertanyaan.detail', compact('pertanyaan'));
     }
 

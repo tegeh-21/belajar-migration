@@ -9,6 +9,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Final Project | Kelompok 7</title>
 
+  <script type="text/javascript" src="../../ckeditor/ckeditor.js"></script>
+
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
@@ -73,12 +75,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-12">
             
             <!-- card -->
-            <div class="card">
+            <!-- <div class="card">
                 
-              <div class="card-body">
+              <div class="card-body"> -->
                 @yield('content')          
-              </div>
-            </div>
+              <!-- </div>
+            </div> -->
             <!-- /.card -->
           </div>
         </div>

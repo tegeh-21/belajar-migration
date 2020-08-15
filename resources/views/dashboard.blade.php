@@ -7,11 +7,11 @@
         <div class="col-md-6">
             <h2>Daftar Pertanyaan</h2>
         </div>
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
             <div class="text-right">
                 <a class="btn btn-block btn-outline-primary" href="{{ route('pertanyaan.create') }}">Tambah Pertanyaan</a>
             </div>
-        </div>
+        </div> -->
     </div>
 
 
@@ -25,12 +25,12 @@
     @endif
 
     <!-- LIST PERTANYAAN, DISINI TEMPAT ITERASI DATA -->
-    
+    @foreach($pertanyaans as $key => $pertanyaan)
     <div class="card card-widget">
         <div class="card-header">
             <div class="user-block">
-                <span class="username"><a href="#">JUDUL PERTANYAAN</a></span>
-                <span class="description">Nama yang posting - 00-00-000 tanggal posting</span>
+                <span class="username"><a href="#">{{ $pertanyaan->judul }}</a></span>
+                <span class="description">Nama yang posting - {{ $pertanyaan->tanggal_dibuat }}</span>
             </div>
         <!-- /.user-block -->
 
@@ -47,11 +47,23 @@
         <!-- /.card-header -->
         <div class="card-body">
             <!-- ISI PERTANYAAN -->
-            <p>Isi pertanyaan lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsumlorem ipsum lorem ipsum</p>
+            <p>{!! $pertanyaan->isi !!}</p>
             <!-- tombol vote -->
-            <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Upvote</button>
-            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-thumbs-down"></i> Downvote</button>
-            <span class="float-right text-muted">Vote Poin : 3,0</span>
+            <form action="/up-vote/{{ $pertanyaan->id }}" method="post">
+                {{ csrf_field() }}
+                {{ method_field('PUT') }}
+                <button type="submit" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Upvote</button>
+            </form>
+            <form action="/down-vote/{{ $pertanyaan->id }}" method="post">
+                {{ csrf_field() }}
+                {{ method_field('PUT') }}
+                <button type="submit" class="btn btn-default btn-sm"><i class="fas fa-thumbs-down"></i> Downvote</button>
+            </form>
+            @foreach($results as $key_result => $result)
+                @if($pertanyaan->id == $result->id_pertanyaan)
+                    <span class="float-right text-muted">Vote Poin : {{ $result->result }}</span>
+                @endif
+            @endforeach
         </div>
         <!-- /.card-body -->
 
@@ -84,8 +96,8 @@
         </div>
         <!-- /.card-footer -->
     </div>
-
     <!-- /.card -->
+    @endforeach
 
     
 @endsection
