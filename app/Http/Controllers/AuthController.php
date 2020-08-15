@@ -80,7 +80,10 @@ class AuthController extends Controller
             'password'      => $request['password']
 
         ]);
-        return view('dashboard');
+        Session::put('name', $request->name);
+        Session::put('email',$request->email);
+        Session::put('login',TRUE);
+        return redirect('dashboard');
         //return redirect()->route('pertanyaans.index')->with('success', 'Pertanyaan berhasil dibuat');
     }
     
