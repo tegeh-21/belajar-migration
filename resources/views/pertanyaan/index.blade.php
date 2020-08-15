@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb mt-3 mb-3">
             <div class="text-left">
-                <h2>Daftar Pertanyaan</h2>
+                <h2>Daftar Pertanyaan Saya</h2>
             </div>
             <div class="text-right">
                 <a class="btn btn-success" href="{{ route('pertanyaan.create') }}">Tambah Pertanyaan</a>
